@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.1.2'
+ruby '2.7.6'
 
 gem 'rails',        '~> 5.1.6'
 gem 'devise'
@@ -22,11 +22,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks',   '~> 5'
 gem 'jbuilder',     '~> 2.5'
-
-gem 'net-ftp', '~> 0.1'
-gem 'net-imap', '~> 0.2'
-gem 'net-pop', '~> 0.1'
-gem 'net-smtp', '~> 0.3'
 
 group :development, :test do
   gem 'sqlite3'
