@@ -23,6 +23,11 @@ gem 'jquery-rails'
 gem 'turbolinks',   '~> 5'
 gem 'jbuilder',     '~> 2.5'
 
+gem 'net-ftp', '~> 0.1'
+gem 'net-imap', '~> 0.2'
+gem 'net-pop', '~> 0.1'
+gem 'net-smtp', '~> 0.3'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
