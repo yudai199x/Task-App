@@ -1,0 +1,42 @@
+<% provide(:title, "Top") %>
+
+<div class="row">
+  <div class="col-md-7">
+    <div class="center jumbotron" id="top-main">
+      <h1 id="top-main-title">TaskApp</h1>
+      <p>TaskAppは簡易ToDo管理ツールです。</p>
+      <p>↓↓初めてのご利用↓↓</p>
+      <% if user_signed_in? %>
+        <%= link_to "アカウント作成", new_user_registration_path, class: "btn btn-lg btn-success disabled" %>
+      <% else %>
+        <%= link_to "アカウント作成", new_user_registration_path, class: "btn btn-lg btn-success" %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <h1></h1>
+    <%= pie_chart @data,
+      donut: true,
+      colors: ["#003366", "#DDDDDD"],
+      library: {
+        title: {
+          text: "#{@wip_pct}%<br>完了", 
+          align: 'center',
+          verticalAlign: 'middle'
+        },
+        plotOptions: {
+          pie: {
+            dataLabels: {
+              enabled: false
+            },
+            size: '80%',
+            innerSize: '70%'
+          },
+          series: {
+            enableMouseTracking: false
+          }
+        }
+      } %>
+  </div>
+</div>

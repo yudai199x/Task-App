@@ -1,0 +1,29 @@
+<% provide(:title, 'Edit Task') %>
+<h1>タスク編集</h1>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= form_with(model: @task, url: user_task_path(@user, @task), local: true, method: :patch) do |f| %>
+      <%= render 'shared/error_messages', object: @task %>
+      
+      <%= f.label :name, class: "label-form" %>
+      <%= f.text_field :name, class: 'form-control' %>
+      
+      <%= f.nested_fields_for :mini_tasks do |q| %>
+      
+        <%= q.label :dtl, class: "label-form" %>
+        
+        <div class="form-inline">
+          <%= q.text_field :dtl, class: 'form-control', id: "dtl-form" %>
+          <%= q.remove_nested_fields_link "削除", class: 'btn btn-danger' %>
+        </div>
+        
+      <% end %>
+      
+      <%= f.add_nested_fields_link :mini_tasks, "詳細追加", class: 'btn btn-primary' %><br>
+      <%= f.submit "更新", class: "btn btn-primary btn-form" %>
+      <%= link_to "キャンセル", user_tasks_path(@user), class: "btn btn-default btn-form" %>
+      </div>
+    <% end %>
+  </div>
+</div>
