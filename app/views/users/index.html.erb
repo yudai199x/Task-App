@@ -8,6 +8,7 @@
       <thead>
         <tr>
           <th><%= User.human_attribute_name :name %></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -24,8 +25,7 @@
             <td>
               <% unless user.admin? %>
                 <%= link_to "削除", user, method: :delete,
-                data: { confirm: "#{user.name}を削除します。よろしいですか？" },
-                class: "btn btn-danger btn-sm pull-right" %>
+                data: { confirm: "#{user.name}を削除します。よろしいですか？" }, class: "btn btn-danger btn-sm pull-right" %>
               <% end %>
             </td>
           </tr>

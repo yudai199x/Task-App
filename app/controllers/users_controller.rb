@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :admin_or_correct, only: :show
   
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).order("id ASC")
   end
 
   def show
